@@ -7,12 +7,6 @@ var night = new Date(now.getFullYear(),
 		     0, 0, 0);
 var msTillMidnight = night.getTime() - now.getTime();
 var sTillMidnight = msTillMidnight / 1000;
-//var myCountdown1 = new Countdown({
-//	    time: msTillMidnight / 1000, // divide by 1000 to get from ms to sec, if this function needs seconds here.
-//	    width:200, 
-//	    height:55,  
-//	    rangeHi:"hour",
-//	    style:"flip"});
 
 function startTimer(duration, display) {
 	var timer = duration, minutes, seconds;
@@ -27,19 +21,39 @@ function startTimer(duration, display) {
 
 		if (--timer < 0) {
 			timer = duration;
-			//window.location.href = "http://stackoverflow.com";
+			window.location.href = "https://www.youtube.com/watch?v=9jK-NcRmVcw&feature=youtu.be&t=117s";
 		}
 	}, 1000);
 }
 
 window.onload = function () {
-var fiveMinutes = 1 * 5,
+var fiveSeconds = 1 * 5,
 display = document.querySelector('#time');
 startTimer(sTillMidnight, display);
 };
 
 </script>
 
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+</head>
+
 <body>
-	<div>THE FINAL COUNTDOWN!<br><span id="time">00:00</span></div>
+	<div style="width: 600px;
+		    height: 100px;
+		    background-color: white;
+		    position: absolute;
+		    top: 0;
+		    bottom: 0;
+		    left: 0;
+		    right: 0;
+		    font-family: 'Bungee', cursive;
+		    font-size: xx-large;
+		    margin: auto;">
+		<center>
+		THE FINAL COUNTDOWN!
+		<br>
+		<span id="time">00:00</span>
+		</center>
+	</div>
 </body>
