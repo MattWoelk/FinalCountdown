@@ -1,0 +1,45 @@
+<script>
+
+var now = new Date();
+var night = new Date(now.getFullYear(),
+		     now.getMonth(),
+		     now.getDate() + 1,
+		     0, 0, 0);
+var msTillMidnight = night.getTime() - now.getTime();
+var sTillMidnight = msTillMidnight / 1000;
+//var myCountdown1 = new Countdown({
+//	    time: msTillMidnight / 1000, // divide by 1000 to get from ms to sec, if this function needs seconds here.
+//	    width:200, 
+//	    height:55,  
+//	    rangeHi:"hour",
+//	    style:"flip"});
+
+function startTimer(duration, display) {
+	var timer = duration, minutes, seconds;
+	setInterval(function () {
+		minutes = parseInt(timer / 60, 10)
+		seconds = parseInt(timer % 60, 10);
+
+		minutes = minutes < 10 ? "0" + minutes : minutes;
+		seconds = seconds < 10 ? "0" + seconds : seconds;
+
+		display.textContent = minutes + ":" + seconds;
+
+		if (--timer < 0) {
+			timer = duration;
+			//window.location.href = "http://stackoverflow.com";
+		}
+	}, 1000);
+}
+
+window.onload = function () {
+var fiveMinutes = 1 * 5,
+display = document.querySelector('#time');
+startTimer(sTillMidnight, display);
+};
+
+</script>
+
+<body>
+	<div>THE FINAL COUNTDOWN!<br><span id="time">00:00</span></div>
+</body>
